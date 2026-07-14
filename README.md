@@ -25,22 +25,73 @@ Through this MCP service, you can obtain the following information:
 - Trading history - View recent trading records
 - Price statistics - Get price statistics for various time windows
 
+## Supported Markets
+
+This service supports multiple Binance market types:
+
+| Market Type | Description | marketType Value |
+|-------------|-------------|-----------------|
+| Spot | Spot trading | `spot` (default) |
+| USD-M Futures | USDⓈ-Margined Futures | `um` |
+| COIN-M Futures | Coin-Margined Futures | `cm` |
+| Options | Vanilla Options | `option` |
+
+Most tools accept an optional `marketType` parameter. When not specified, the tool defaults to the **Spot** market.
+
 ## Available Tools
 
-| Tool                       | Description                                    |
-| -------------------------- | ----------------------------------------------- |
-| `get_price`                | Get current price for specified cryptocurrency  |
-| `get_order_book`           | Get order book data                            |
-| `get_recent_trades`        | Get list of recent trades                      |
-| `get_historical_trades`    | Get historical trade data                      |
-| `get_aggregate_trades`     | Get list of aggregate trades                   |
-| `get_klines`               | Get K-line/candlestick data                    |
-| `get_ui_klines`            | Get UI-optimized K-line data                   |
-| `get_avg_price`            | Get current average price                      |
-| `get_24hr_ticker`          | Get 24-hour price change statistics            |
-| `get_trading_day_ticker`   | Get trading day market information             |
-| `get_book_ticker`          | Get order book ticker                          |
-| `get_rolling_window_ticker` | Get rolling window price change statistics    |
+| Tool                       | Description                                    | Market Types Supported |
+| -------------------------- | ----------------------------------------------- | ---------------------- |
+| `get_price`                | Get current price for specified cryptocurrency  | spot, um, cm, option   |
+| `get_order_book`           | Get order book data                            | spot, um, cm, option   |
+| `get_recent_trades`        | Get list of recent trades                      | spot, um, cm, option   |
+| `get_historical_trades`    | Get historical trade data                      | spot, um, cm           |
+| `get_aggregate_trades`     | Get list of aggregate trades                   | spot, um, cm, option   |
+| `get_klines`               | Get K-line/candlestick data                    | spot, um, cm, option   |
+| `get_ui_klines`            | Get UI-optimized K-line data                   | spot, um               |
+| `get_avg_price`            | Get current average price                      | spot                   |
+| `get_24hr_ticker`          | Get 24-hour price change statistics            | spot, um, cm, option   |
+| `get_trading_day_ticker`   | Get trading day market information             | spot                   |
+| `get_book_ticker`          | Get order book ticker                          | spot, um, cm, option   |
+| `get_rolling_window_ticker` | Get rolling window price change statistics    | spot, um, cm, option   |
+
+## Usage Examples
+
+### Query Bitcoin Price (Spot)
+
+```
+Please tell me the current price of Bitcoin
+```
+
+### Query Bitcoin Price (USD-M Futures)
+
+```
+Get BTCUSDT price from USD-M futures market
+```
+
+### View Ethereum's 24-hour Price Movement
+
+```
+How has Ethereum's price changed in the past 24 hours?
+```
+
+### View BTCUSDT Order Book from USD-M Futures
+
+```
+Get the order book for BTCUSDT perpetual futures
+```
+
+### View BTCUSD Order Book from COIN-M Futures
+
+```
+Get the order book for BTCUSD coin-margined futures
+```
+
+### Get K-line Data from Options Market
+
+```
+Show me the daily K-line data for ETH options over the last 5 days
+```
 
 ## Using in Cursor
 
@@ -103,25 +154,6 @@ After configuration, the Binance market data tools will be automatically availab
 }
 ```
 
-## Usage Examples
-
-Here are some usage examples:
-
-**Query Bitcoin Price**
-```
-Please tell me the current price of Bitcoin
-```
-
-**View Ethereum's 24-hour Price Movement**
-```
-How has Ethereum's price changed in the past 24 hours?
-```
-
-**Get BNB's K-line Data**
-```
-Show me the daily K-line data for BNB over the last 5 days
-```
-
 ## Development
 
 ```bash
@@ -154,4 +186,4 @@ npx @modelcontextprotocol/inspector node dist/index.js
 
 ## License
 
-[Apache 2.0](LICENSE) 
+[Apache 2.0](LICENSE)
