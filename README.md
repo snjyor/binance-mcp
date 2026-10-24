@@ -1,5 +1,5 @@
 # Binance Cryptocurrency MCP
-[![smithery badge](https://smithery.ai/badge/@snjyor/binance-mcp-data)](https://smithery.ai/server/@snjyor/binance-mcp-data)
+[![LightNow capabilities](https://lightnow.ai/badge/io.github.snjyor/binance-mcp)](https://lightnow.ai/servers/io.github.snjyor/binance-mcp)
 
 <a href="https://glama.ai/mcp/servers/@snjyor/binance-mcp">
   <img width="380" height="200" src="https://glama.ai/mcp/servers/@snjyor/binance-mcp/badge" alt="Binance Cryptocurrency MCP server" />
